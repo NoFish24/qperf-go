@@ -5,7 +5,7 @@ package qlog_quic
 import (
 	"context"
 	"github.com/francoispqt/gojay"
-	"github.com/quic-go/quic-go/logging"
+	"github.com/nofish24/quic-go/logging"
 	"net"
 	"qperf-go/common/qlog"
 	"time"

@@ -1,6 +1,6 @@
 package errors
 
-import "github.com/quic-go/quic-go"
+import "github.com/nofish24/quic-go"
 
 const (
 	NoError           = quic.ApplicationErrorCode(0)

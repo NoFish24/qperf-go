@@ -1,7 +1,7 @@
 package qlog
 
 import (
-	"github.com/quic-go/quic-go/logging"
+	"github.com/nofish24/quic-go/logging"
 	"strings"
 )
 

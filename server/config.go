@@ -2,8 +2,8 @@ package server
 
 import (
 	"crypto/tls"
-	"github.com/quic-go/quic-go"
-	"github.com/quic-go/quic-go/logging"
+	"github.com/nofish24/quic-go"
+	"github.com/nofish24/quic-go/logging"
 	qlog2 "qperf-go/common/qlog"
 	"qperf-go/perf"
 	"runtime/debug"

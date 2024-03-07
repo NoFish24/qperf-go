@@ -2,7 +2,7 @@ package perf_server
 
 import (
 	"crypto/tls"
-	"github.com/quic-go/quic-go"
+	"github.com/nofish24/quic-go"
 	"qperf-go/perf"
 )
 

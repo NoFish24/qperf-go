@@ -3,7 +3,7 @@ package perf_client
 import (
 	"context"
 	"encoding/binary"
-	"github.com/quic-go/quic-go"
+	"github.com/nofish24/quic-go"
 	"io"
 	"qperf-go/common"
 	"qperf-go/common/utils"

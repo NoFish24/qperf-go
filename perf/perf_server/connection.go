@@ -3,7 +3,7 @@ package perf_server
 import (
 	"context"
 	"encoding/binary"
-	"github.com/quic-go/quic-go"
+	"github.com/nofish24/quic-go"
 	"qperf-go/errors"
 	"qperf-go/perf"
 	"sync"

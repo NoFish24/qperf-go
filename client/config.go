@@ -2,8 +2,8 @@ package client
 
 import (
 	"crypto/tls"
-	"github.com/quic-go/quic-go"
-	"github.com/quic-go/quic-go/logging"
+	"github.com/nofish24/quic-go"
+	"github.com/nofish24/quic-go/logging"
 	qlog2 "qperf-go/common/qlog"
 	"qperf-go/perf"
 	"runtime/debug"
@@ -49,6 +49,9 @@ type Config struct {
 	RequestInterval           time.Duration
 	Deadline                  time.Duration
 	ResponseDelay             time.Duration
+	//ROSA
+	EdgeAddr   string
+	ClientAddr string
 }
 
 func (c *Config) Populate() *Config {

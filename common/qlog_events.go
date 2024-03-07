@@ -2,7 +2,7 @@ package common
 
 import (
 	"github.com/francoispqt/gojay"
-	"github.com/quic-go/quic-go/logging"
+	"github.com/nofish24/quic-go/logging"
 	"qperf-go/common/qlog"
 	"time"
 )

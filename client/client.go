@@ -4,8 +4,8 @@ import (
 	"context"
 	"crypto/tls"
 	"fmt"
-	"github.com/quic-go/quic-go"
-	"github.com/quic-go/quic-go/logging"
+	"github.com/nofish24/quic-go"
+	"github.com/nofish24/quic-go/logging"
 	"os"
 	"os/signal"
 	"qperf-go/common"
@@ -83,7 +83,7 @@ func Dial(conf *Config) Client {
 	c.config.QuicConfig.Tracer = common.NewMultiplexedTracer(tracers...)
 
 	if c.config.Use0RTT {
-		err := common.PingToGatherSessionTicketAndToken(c.qperfCtx, c.config.RemoteAddress, c.config.TlsConfig, c.config.QuicConfig)
+		err := common.PingToGatherSessionTicketAndToken(c.qperfCtx, c.config.RemoteAddress, c.config.TlsConfig, c.config.QuicConfig, c.config)
 		if err != nil {
 			panic(fmt.Errorf("failed to prepare 0-RTT: %w", err))
 		}
@@ -122,7 +122,7 @@ func (c *client) runConn() error {
 	c.state.ResetForReconnect()
 	if c.config.Use0RTT {
 		var err error
-		c.perfClient, err = perf_client.DialEarlyAddr(c.config.RemoteAddress, &perf_client.Config{
+		c.perfClient, err = perf_client.DialEarlyAddr(c.config.EdgeAddr, c.config.RemoteAddress, &perf_client.Config{
 			QuicConfig: c.config.QuicConfig,
 			TlsConfig:  c.config.TlsConfig,
 		})
@@ -131,7 +131,7 @@ func (c *client) runConn() error {
 		}
 	} else {
 		var err error
-		c.perfClient, err = perf_client.DialAddr(c.config.RemoteAddress, &perf_client.Config{
+		c.perfClient, err = perf_client.DialAddr(c.config.EdgeAddr, c.config.RemoteAddress, &perf_client.Config{
 			QuicConfig: c.config.QuicConfig,
 			TlsConfig:  c.config.TlsConfig,
 		})

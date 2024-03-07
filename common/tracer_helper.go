@@ -2,8 +2,8 @@ package common
 
 import (
 	"context"
-	"github.com/quic-go/quic-go"
-	"github.com/quic-go/quic-go/logging"
+	"github.com/nofish24/quic-go"
+	"github.com/nofish24/quic-go/logging"
 )
 
 func NewMultiplexedTracer(tracers ...func(ctx context.Context, perspective logging.Perspective, id quic.ConnectionID) logging.ConnectionTracer) func(ctx context.Context, perspective logging.Perspective, id quic.ConnectionID) logging.ConnectionTracer {

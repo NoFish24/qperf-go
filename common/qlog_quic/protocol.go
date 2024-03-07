@@ -1,6 +1,6 @@
 package qlog_quic
 
-import "github.com/quic-go/quic-go/logging"
+import "github.com/nofish24/quic-go/logging"
 
 // mostly copied from quic-go/internal/protocol/protocol.go
 

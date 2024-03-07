@@ -131,6 +131,16 @@ func clientCommand(config *client.Config) *cli.Command {
 					return nil
 				},
 			},
+			&cli.StringFlag{
+				Name:       "edgeaddr",
+				Usage:      "Address of the Edge to connect ROSA to",
+				Value:      "fd00:10::1:12345",
+				HasBeenSet: true,
+				Action: func(context *cli.Context, s string) error {
+					config.EdgeAddr = s
+					return nil
+				},
+			},
 			&cli.BoolFlag{
 				Name:  "0rtt",
 				Usage: "gather 0-RTT information to the server beforehand",

@@ -3,7 +3,7 @@ package qlog
 // mostly copied from quic-go/qlog/trace.go
 
 import (
-	"github.com/quic-go/quic-go/logging"
+	"github.com/nofish24/quic-go/logging"
 	"time"
 
 	"github.com/francoispqt/gojay"

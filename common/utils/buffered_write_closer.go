@@ -1,6 +1,6 @@
 package utils
 
-// source https://github.com/quic-go/quic-go/blob/master/internal/utils/buffered_write_closer.go
+// source https://github.com/nofish24/quic-go/blob/master/internal/utils/buffered_write_closer.go
 
 import (
 	"bufio"

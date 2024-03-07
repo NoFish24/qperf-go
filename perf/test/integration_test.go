@@ -2,7 +2,7 @@ package perf_integration_test
 
 import (
 	"crypto/tls"
-	"github.com/quic-go/quic-go"
+	"github.com/nofish24/quic-go"
 	"github.com/stretchr/testify/assert"
 	"qperf-go/common"
 	"qperf-go/perf/perf_client"

@@ -3,7 +3,7 @@ package qlog_quic
 import (
 	"bufio"
 	"context"
-	"github.com/quic-go/quic-go/logging"
+	"github.com/nofish24/quic-go/logging"
 	"os"
 	"path"
 	"qperf-go/common/qlog"

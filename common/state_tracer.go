@@ -2,7 +2,7 @@ package common
 
 import (
 	"context"
-	"github.com/quic-go/quic-go/logging"
+	"github.com/nofish24/quic-go/logging"
 	"time"
 )
 

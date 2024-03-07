@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/binary"
 	"fmt"
-	"github.com/quic-go/quic-go"
+	"github.com/nofish24/quic-go"
 	"io"
 	"qperf-go/perf"
 	"sync"

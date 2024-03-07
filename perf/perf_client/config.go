@@ -2,8 +2,8 @@ package perf_client
 
 import (
 	"crypto/tls"
-	"github.com/quic-go/quic-go"
-	"github.com/quic-go/quic-go/logging"
+	"github.com/nofish24/quic-go"
+	"github.com/nofish24/quic-go/logging"
 	"qperf-go/perf"
 )
 

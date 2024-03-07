@@ -1,6 +1,6 @@
 package perf
 
-import "github.com/quic-go/quic-go"
+import "github.com/nofish24/quic-go"
 
 // ALPN is from Section 2.1 in https://datatracker.ietf.org/doc/html/draft-banks-quic-performance-00
 const ALPN = "perf"

@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/binary"
 	"errors"
-	"github.com/quic-go/quic-go"
+	"github.com/nofish24/quic-go"
 	"qperf-go/common"
 	errors2 "qperf-go/errors"
 	"qperf-go/perf"
@@ -38,14 +38,14 @@ func (c *client) Context() context.Context {
 	return c.ctx
 }
 
-func DialAddr(remoteAddr string, conf *Config) (Client, error) {
+func DialAddr(edgeAddr, remoteAddr string, conf *Config) (Client, error) {
 	c := &client{
 		config: conf.Populate(),
 	}
 	c.ctx, c.cancelCtx = context.WithCancel(context.Background())
 
 	var err error
-	c.conn, err = quic.DialAddr(c.ctx, remoteAddr, c.config.TlsConfig, c.config.QuicConfig)
+	c.conn, err = quic.DialAddr(c.ctx, "", edgeAddr, remoteAddr, c.config.TlsConfig, c.config.QuicConfig)
 	if err != nil {
 		return nil, err
 	}
@@ -60,14 +60,14 @@ func DialAddr(remoteAddr string, conf *Config) (Client, error) {
 	return c, nil
 }
 
-func DialEarlyAddr(remoteAddr string, conf *Config) (Client, error) {
+func DialEarlyAddr(edgeAddr, remoteAddr string, conf *Config) (Client, error) {
 	c := &client{
 		config: conf.Populate(),
 	}
 	c.ctx, c.cancelCtx = context.WithCancel(context.Background())
 
 	var err error
-	c.conn, err = quic.DialAddrEarly(c.ctx, remoteAddr, c.config.TlsConfig, c.config.QuicConfig)
+	c.conn, err = quic.DialAddrEarly(c.ctx, "", edgeAddr, remoteAddr, c.config.TlsConfig, c.config.QuicConfig)
 	if err != nil {
 		return nil, err
 	}

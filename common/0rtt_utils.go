@@ -4,14 +4,15 @@ import (
 	"context"
 	"crypto/tls"
 	"errors"
-	"github.com/quic-go/quic-go"
+	"github.com/nofish24/quic-go"
+	"qperf-go/client"
 )
 
 // PingToGatherSessionTicketAndToken establishes a new QUIC connection.
 // As soon as the session ticket and the token is received, the connection is closed.
 // This function can be used to prepare for 0-RTT
 // TODO add timeout
-func PingToGatherSessionTicketAndToken(ctx context.Context, addr string, tlsConf *tls.Config, config *quic.Config) error {
+func PingToGatherSessionTicketAndToken(ctx context.Context, addr string, tlsConf *tls.Config, config *quic.Config, c *client.Config) error {
 	if tlsConf.ClientSessionCache == nil {
 		return errors.New("session cache is nil")
 	}
@@ -27,7 +28,7 @@ func PingToGatherSessionTicketAndToken(ctx context.Context, addr string, tlsConf
 	tmpConfig := config.Clone()
 	tmpConfig.TokenStore = singleTokenStore
 
-	connection, err := quic.DialAddr(ctx, addr, tmpTlsConf, tmpConfig)
+	connection, err := quic.DialAddr(ctx, "", c.EdgeAddr, addr, tmpTlsConf, tmpConfig)
 	if err != nil {
 		return err
 	}
