@@ -28,7 +28,7 @@ func PingToGatherSessionTicketAndToken(ctx context.Context, addr string, tlsConf
 	tmpConfig := config.Clone()
 	tmpConfig.TokenStore = singleTokenStore
 
-	connection, err := quic.DialAddr(ctx, "", c.EdgeAddr, addr, tmpTlsConf, tmpConfig)
+	connection, err := quic.DialAddr(ctx, c.ClientAddr, c.EdgeAddr, addr, tmpTlsConf, tmpConfig)
 	if err != nil {
 		return err
 	}

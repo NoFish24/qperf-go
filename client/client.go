@@ -122,7 +122,7 @@ func (c *client) runConn() error {
 	c.state.ResetForReconnect()
 	if c.config.Use0RTT {
 		var err error
-		c.perfClient, err = perf_client.DialEarlyAddr(c.config.EdgeAddr, c.config.RemoteAddress, &perf_client.Config{
+		c.perfClient, err = perf_client.DialEarlyAddr(c.config.ClientAddr, c.config.EdgeAddr, c.config.RemoteAddress, &perf_client.Config{
 			QuicConfig: c.config.QuicConfig,
 			TlsConfig:  c.config.TlsConfig,
 		})
@@ -131,7 +131,7 @@ func (c *client) runConn() error {
 		}
 	} else {
 		var err error
-		c.perfClient, err = perf_client.DialAddr(c.config.EdgeAddr, c.config.RemoteAddress, &perf_client.Config{
+		c.perfClient, err = perf_client.DialAddr(c.config.ClientAddr, c.config.EdgeAddr, c.config.RemoteAddress, &perf_client.Config{
 			QuicConfig: c.config.QuicConfig,
 			TlsConfig:  c.config.TlsConfig,
 		})

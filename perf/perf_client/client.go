@@ -38,14 +38,14 @@ func (c *client) Context() context.Context {
 	return c.ctx
 }
 
-func DialAddr(edgeAddr, remoteAddr string, conf *Config) (Client, error) {
+func DialAddr(clientAddr, edgeAddr, remoteAddr string, conf *Config) (Client, error) {
 	c := &client{
 		config: conf.Populate(),
 	}
 	c.ctx, c.cancelCtx = context.WithCancel(context.Background())
 
 	var err error
-	c.conn, err = quic.DialAddr(c.ctx, "", edgeAddr, remoteAddr, c.config.TlsConfig, c.config.QuicConfig)
+	c.conn, err = quic.DialAddr(c.ctx, clientAddr, edgeAddr, remoteAddr, c.config.TlsConfig, c.config.QuicConfig)
 	if err != nil {
 		return nil, err
 	}
@@ -60,14 +60,14 @@ func DialAddr(edgeAddr, remoteAddr string, conf *Config) (Client, error) {
 	return c, nil
 }
 
-func DialEarlyAddr(edgeAddr, remoteAddr string, conf *Config) (Client, error) {
+func DialEarlyAddr(clientAddr, edgeAddr, remoteAddr string, conf *Config) (Client, error) {
 	c := &client{
 		config: conf.Populate(),
 	}
 	c.ctx, c.cancelCtx = context.WithCancel(context.Background())
 
 	var err error
-	c.conn, err = quic.DialAddrEarly(c.ctx, "", edgeAddr, remoteAddr, c.config.TlsConfig, c.config.QuicConfig)
+	c.conn, err = quic.DialAddrEarly(c.ctx, clientAddr, edgeAddr, remoteAddr, c.config.TlsConfig, c.config.QuicConfig)
 	if err != nil {
 		return nil, err
 	}
